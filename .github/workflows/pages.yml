@@ -35,14 +35,13 @@ jobs:
         with:
           node-version: "16"
           cache: ${{ steps.detect-package-manager.outputs.manager }}            
-      - name: Install dependencies
-        run: npm install
-      - name: Build
-        run: npm run build
+          cache-dependency-path: ${{ env.BUILD_PATH }}/package-lock.json
+      - name: Install & Build
+        run: npm install && npm run build      
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: ./public
+          path: ${{ env.BUILD_PATH }}/public
 
   # Deployment job
   deploy:
