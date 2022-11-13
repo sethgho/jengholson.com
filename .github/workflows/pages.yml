@@ -39,7 +39,7 @@ jobs:
       - name: Install & Build
         run: npm install && npm run build      
       - name: Troubleshooting
-        run: ls public && echo ${{ env.BUILD_PATH }}/public
+        run: ls public
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
