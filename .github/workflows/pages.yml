@@ -38,6 +38,8 @@ jobs:
           cache-dependency-path: ${{ env.BUILD_PATH }}/package-lock.json
       - name: Install & Build
         run: npm install && npm run build      
+      - name: Troubleshooting
+        run: ls
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
